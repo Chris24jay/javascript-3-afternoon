@@ -69,6 +69,16 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 */
 
 //Code Here
+function removeDuplicates(arr){
+  for(let i=0; i<arr.length; i++){
+    for(let j= i+1; j<arr.length; i++){
+      if(arr[i]===arr[i]){
+        arr.splice(j,1)
+        j--
+      }
+    }
+  }
+}
 
 
 

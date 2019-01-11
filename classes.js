@@ -30,7 +30,17 @@
 */
 
 //Code Here
-
+class Employee{
+  constructor(first_name,last_name,email,age){
+    this.first_name = first_name
+    this.last_name = last_name
+    this.email = email
+    this.age = age
+  }
+    makeWidget(){
+     return `${this.first_name} ${this.last_name} Widget`
+  }
+}
 
 
 ////////// PROBLEM 2 //////////
@@ -50,6 +60,29 @@
 */
 
 //Code Here
+class Manager{
+  constructor(first_name,last_name,email,age,reports){
+    this.first_name = first_name
+    this.last_name = last_name
+    this.email = email
+    this.age = age
+    this.reports = []
+  }
+    makeWidget(){
+     return `${this.first_name} ${this.last_name} Widget`
+  }
+
+    hire(newEm){
+      return this.reports.push(newEm)
+    }
+
+    fire(youreFired){
+       return this.reports.splice(youreFired,1)
+    }    
+}
+
+
+
 
 
 
@@ -75,7 +108,57 @@
   Call your new class ProgressiveManager
 */
 
-//Code Here
+class ProgressiveManager{
+  constructor(first_name,last_name,email,age,reports, title, bonus){
+    this.first_name = first_name
+    this.last_name = last_name
+    this.email = email
+    this.age = age
+    this.reports = []
+    this.title ='Not a manager'
+    this.bonus = 0
+  }
+    makeWidget(){
+     return `${this.first_name} ${this.last_name} Widget`
+  }
+
+    hire(newEm){
+      this.reports.push(newEm)
+      this.myTitle()
+    }
+
+    fire(youreFired){
+       this.reports.splice(youreFired,1)
+       this.myTitle()
+       this.getMoney()
+    }  
+    
+    myTitle(){
+      var reportNumber = this.reports.length;
+      if(reportNumber===0){
+        this.title= 'Not a manager'
+      }
+      if(reportNumber>=1 && reportNumber<4){
+         this.title='Barely Manager'
+      }
+      if(reportNumber>=4 && reportNumber<11){
+        this.title= 'Mostly Manager'
+      }
+      if(reportNumber>=11 && reportNumber<51){
+        this.title= 'Manager'
+      }
+      if(reportNumber>=51 && reportNumber<101){
+        this.title= 'Manager Plus'
+      }
+      if(reportNumber>=101){
+        this.title= 'Bestest Manager'
+      }
+    }
+
+     getMoney(){
+      this.bonus += 100 //add $100 to this.bonus
+     }
+}
 
 
 
@@ -103,5 +186,23 @@
 */
 
 //Code Here
-
+class Machine{
+  constructor(){
+    this.widgets_made_count = 0
+    this.wear_and_tear_count = 0
+    this.needs_reboot = false
+  }
+  makeWidgets(num){
+    this.widgets_made_count+=num
+    this.wear_and_tear_count = this.widgets_made_count/50
+  }
+  fixMachine(){
+    this.needs_reboot = true
+  }
+  reboot(){
+      return () => {this.wear_and_tear_count-=10
+      this.needs_reboot = false}
+    
+  }
+}
 
