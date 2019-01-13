@@ -52,6 +52,17 @@ var employees = [
 
 //Code Here
 
+let employeeUpdater = () => {
+  for(let i = 0; i<employees.length; i++){
+    if(employees[i]["firstName"] === "Theo"){
+      employees.splice(i,1)
+    }
+    if(employees[i]["firstName"] === "Lorie"){
+      employees[i]["department"] = "HR"
+    }
+  } return employees
+}
+
 
 
 ////////// PROBLEM 2 //////////
@@ -69,16 +80,23 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 */
 
 //Code Here
-function removeDuplicates(arr){
-  for(let i=0; i<arr.length; i++){
-    for(let j= i+1; j<arr.length; i++){
-      if(arr[i]===arr[i]){
-        arr.splice(j,1)
-        j--
+
+let removeDuplicates = () => {
+  workplaceAccidents.forEach((element, index, arr)=>{
+    for(let i= index + 1; i<workplaceAccidents.length; i++){
+        if(element === workplaceAccidents[i]){
+        workplaceAccidents.splice(i,1)
+        i--
       }
     }
-  }
+  })
+  return workplaceAccidents
 }
+
+removeDuplicates()
+
+
+
 
 
 
@@ -107,9 +125,10 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
 
+
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 ////////// PROBLEM 4 //////////
@@ -150,6 +169,13 @@ var myCar = {
 
 //Code Here
 
+function recordCleaner(){
+  myCar.accidents.forEach((val) => {
+    val.atFaultForAccident = false
+  })  
+}
+
+
 
 
 ////////// PROBLEM 5 //////////
@@ -168,5 +194,25 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 //Code Here
+
+let looper = () => {
+  numsArr.forEach((val, ind, arr) => {
+    val.forEach((v,i,a) => {
+      if(v%2===0){
+        console.log('mark here')
+        a[i] = 'even' //why doesn't v = 'even' work?
+      }
+      else {
+        a[i] = 'odd' 
+      }
+    })
+  })
+  console.log(numsArr) 
+  return numsArr
+}
+
+
+
+
 
 

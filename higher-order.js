@@ -106,8 +106,11 @@ const orders = [{"price":15,"tax":0.09},{"price":42,"tax":0.07},{"price":56,"tax
 /*
   Use a higher order method to get all the order totals after adding in the sales tax. Your answer should be an array of numbers, one total for each order.
 */
-
-let orderTotals
+// I want to go over the array and do some math. I have to multiply the price and tax propeties
+let orderTotals = orders.map((val) => {
+  let total = val["tax"] + 1
+  return val["price"] * total
+})
 
 
 
@@ -127,6 +130,29 @@ const purchases = [{"owner":"Barry","price":103},{"owner":"Bob","price":75},
   Use a high order method to create to get the sum of bobsTotal.
 */
 
-let bobsTotal //Code Here
+let bobFilter = purchases.filter((val, ) => {
+  if(val.owner === "Bob"){
+    return val
+  }
+})
+
+console.log(bobFilter)
+
+
+let bobPrice = bobFilter.map((val,) => {
+   return val.price
+  {}
+})
+
+console.log(bobPrice)
+
+
+let bobsTotal = bobPrice.reduce((total, val, ind) => {
+  return total + val
+})
+
+
+
+//Code Here
 
 
